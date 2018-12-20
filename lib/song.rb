@@ -33,12 +33,6 @@ class Song
   end
   
   def self.find_or_create_by_name(string)
-    if self.find_by_name(string) !=true
-      self.create_by_name (string)
-    else 
-      same_str_arr = @@all.find_all do |item| 
-        item = item if item.name == string
-      end
-    end
+    self.find_by_name(song_name) || self.create_by_name(song_name)
   end
 end
